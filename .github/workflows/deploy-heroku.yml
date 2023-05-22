@@ -1,5 +1,5 @@
 ###By Neftali Ramirez Chavez
-name: CD - Heroku
+name: Heroku-zerocopy-api-user-CD
 on:
   push:
     branches:
