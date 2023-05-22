@@ -1,11 +1,11 @@
 ###By Neftali Ramirez Chavez
-name: Spring User - Tests
+name: Spring-zerocopy-api-user-CI
 on:
   push:
-    branches: ['develop', 'release-*']
+    branches: ['develop', 'release-*','master']
 jobs:
   test:
-    name: Test - Unit & Integration & SonarCloud Scan & Slack WebHook
+    name: Test-zerocopy-api-user-CI - Unit & Integration & SonarCloud Scan & Slack WebHook
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
