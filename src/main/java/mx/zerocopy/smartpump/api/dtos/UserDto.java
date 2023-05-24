@@ -30,6 +30,7 @@ public class UserDto {
     @NotNull
     @NotBlank
     private String firstName;
+    private String lastName;
     private String familyName;
     private String email;
     private String dni;
@@ -38,6 +39,14 @@ public class UserDto {
     private Role role;
     private Boolean active;
     private LocalDateTime registrationDate;
+    private String company;
+    private int id;
+    private String guid;
+    private String balance;
+    private String picture;
+    private int age;
+    private String eyeColor;
+   
 
     public UserDto(User user) {
         BeanUtils.copyProperties(user, this);

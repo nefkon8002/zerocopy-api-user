@@ -87,10 +87,10 @@ public class UserService {
         //    // throw new ConflictException("The mobile already exists: " + mobile);
         // }
         //dinamicUpdate(String company,String eyeColor, int age,String picture,String balance,String firstName,String lastName,String email,String dni,String address,String active);
-        user.setCompany("PLUSNETWORK.COM");
-        user.setEyeColor("BLUEEEE");
-        user.setAge(30);    
-        this.userRepository.dinamicUpdate(user.getCompany(),user.getEyeColor(),user.getAge(),user.getPicture(),user.getBalance(),user.getFirstName(),user.getLastName(),user.getEmail(),user.getDni(),user.getAddress(),user.getActive(),user.getMobile());
+        // user.setCompany("PLUSNETWORK.COM");
+        // user.setEyeColor("BLUEEEE");
+        // user.setAge(30);    
+        this.userRepository.dinamicUpdate(user.getCompany(),user.getEyeColor(),user.getAge(),user.getPicture(),user.getBalance(),user.getFirstName(),user.getLastName(),user.getFamilyName(),user.getEmail(),user.getDni(),user.getAddress(),user.getActive(),user.getMobile());
         
         //this.userRepository.dinamicUpdate("PLUSNETWORK","BLUE",89,user.getPicture(),user.getBalance(),user.getFirstName(),user.getLastName(),user.getEmail(),user.getDni(),user.getAddress(),user.getActive(),user.getMobile());
         
