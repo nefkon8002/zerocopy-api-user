@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Arrays;
 
 @Repository
 public class DatabaseStarting {
@@ -28,7 +29,7 @@ public class DatabaseStarting {
 
     void initialize() {
         LogManager.getLogger(this.getClass()).warn("------- Finding Admin -----------");
-        if (this.userRepository.findByRoleIn(List.of(Role.ADMIN)).isEmpty()) {
+        if (this.userRepository.findByRoleIn(Arrays.asList(Role.ADMIN)).isEmpty()) {
             User user = User.builder().mobile(MOBILE).firstName(SUPER_USER)
                     .password(new BCryptPasswordEncoder().encode(PASSWORD))
                     .role(Role.ADMIN).registrationDate(LocalDateTime.now()).active(true).build();

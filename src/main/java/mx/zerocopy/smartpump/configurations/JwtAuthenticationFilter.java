@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+import java.util.Arrays;
 
 public class JwtAuthenticationFilter extends BasicAuthenticationFilter {
 
@@ -35,7 +36,7 @@ public class JwtAuthenticationFilter extends BasicAuthenticationFilter {
         if (!token.isEmpty()) {
             GrantedAuthority authority = new SimpleGrantedAuthority(Role.PREFIX + jwtService.role(token));
             UsernamePasswordAuthenticationToken authentication =
-                    new UsernamePasswordAuthenticationToken(jwtService.user(token), token, List.of(authority));
+                    new UsernamePasswordAuthenticationToken(jwtService.user(token), token, Arrays.asList(authority));
             SecurityContextHolder.getContext().setAuthentication(authentication);
         }
         chain.doFilter(request, response);

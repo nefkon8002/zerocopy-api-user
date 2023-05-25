@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
-
+import java.util.Arrays;
 @Service
 public class UserService {
 
@@ -48,13 +48,13 @@ public class UserService {
 
     private List< Role > authorizedRoles(Role roleClaim) {
         if (Role.ADMIN.equals(roleClaim)) {
-            return List.of(Role.ADMIN, Role.MANAGER, Role.OPERATOR, Role.CUSTOMER);
+            return Arrays.asList(Role.ADMIN, Role.MANAGER, Role.OPERATOR, Role.CUSTOMER);
         } else if (Role.MANAGER.equals(roleClaim)) {
-            return List.of(Role.MANAGER, Role.OPERATOR, Role.CUSTOMER);
+            return Arrays.asList(Role.MANAGER, Role.OPERATOR, Role.CUSTOMER);
         } else if (Role.OPERATOR.equals(roleClaim)) {
-            return List.of(Role.CUSTOMER);
+            return Arrays.asList(Role.CUSTOMER);
         } else {
-            return List.of();
+            return Arrays.asList();
         }
     }
 

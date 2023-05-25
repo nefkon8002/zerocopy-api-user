@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
-
+import java.util.Arrays;
 import static mx.zerocopy.smartpump.data.model.Role.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -23,14 +23,14 @@ class UserRepositoryIT {
 
     @Test
     void testFindByRoleIn() {
-        List< Role > roles = List.of(ADMIN, MANAGER);
+        List< Role > roles = Arrays.asList(ADMIN, MANAGER);
         assertTrue(this.userRepository.findByRoleIn(roles).stream().allMatch(user -> roles.contains(user.getRole())));
     }
 
     @Test
     void testFindByMobileAndFirstNameAndFamilyNameAndEmailAndDniNullSafeWithMobile() {
         assertTrue(this.userRepository.findByMobileAndFirstNameAndFamilyNameAndEmailAndDniContainingNullSafe(
-                "1", null, null, ".com", null, List.of(MANAGER)).stream()
+                "1", null, null, ".com", null, Arrays.asList(MANAGER)).stream()
                 .anyMatch(user -> "666666001".equals(user.getMobile()))
         );
     }
@@ -39,7 +39,7 @@ class UserRepositoryIT {
     void testFindByMobileAndFirstNameAndFamilyNameAndEmailAndDniNullSafeWithDni() {
         assertTrue(this.userRepository.findByMobileAndFirstNameAndFamilyNameAndEmailAndDniContainingNullSafe(
                 null, null, null, null, "kk",
-                List.of(ADMIN, MANAGER, OPERATOR, CUSTOMER)).isEmpty()
+                Arrays.asList(ADMIN, MANAGER, OPERATOR, CUSTOMER)).isEmpty()
         );
     }
 
